@@ -111,7 +111,12 @@ class UploadRecipe:
                 wt_alt_measure = alt_measure["serving_weight"]
                 qty_alt_measure = alt_measure["qty"]
                 break
-
+        # 1. Multiplication Factor will remain same because we are only concerned about the weight and we must use the wt. of the ingridient that we have scrapped.
+        # 2. If we find the serving_unit that we have scrapped  ==  to the something in alt_measure then only we'll change the quantity, otherwise the quatity should
+        #    be changed to the weight of the ingridient that we've scrapped. 
+        # 3. The actual serving_wt should directly come from the scrapping.
+        
+        
         if wt_alt_measure == -1:
             multiplication_factor = ingredient_weight_grams_scrapped / serving_wt_api
         else:
